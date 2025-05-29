@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    
+</head>
+
+<body>
+    
+    <h1>Bienvenido</h1>
+    
+    <!--Verificación de sesión iniciada-->
+    <script> const login = localStorage.getItem("login") === "true";
+     const agente = localStorage.getItem("agente"); 
+     if (login && agente) { console.log("Bienvenido", agente); 
+    } else { alert("Debes iniciar sesión"); window.location.href = "login.html"; }
+     </script>
+
+    <script src="js/verificarSesiónIniciada.js" defer></script>
+
+<button onclick="logout()">Cerrar sesión</button>
+
+<script> function logout() { localStorage.removeItem("login"); localStorage.removeItem("agente"); window.location.href = "login.html"; } </script>
+
+
+<form id="formulario">
+    <label for="cliente">Selecciona un cliente:</label>
+    
+        
+        <input list="lista_clientes" id="cliente" name="cliente" placeholder="Escribe o selecciona un cliente" required>
+    <datalist id="lista_clientes">
+    </datalist>
+    <input type="submit" value="Enviar">
+</form>
+
+<script src="js/formulario.js"></script>
+
+
+
+
+
+</body>
+</html>
